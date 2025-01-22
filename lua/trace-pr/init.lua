@@ -8,7 +8,6 @@ function M.trace_pr()
   local commit_hash = require("trace-pr.commit_hash").get(current_buf_path, current_line_num)
   local pr_number = require("trace-pr.pr_number").get(commit_hash)
 
-  -- browse_pr(pr_number, commit_hash)
   require("trace-pr.browser").browse(pr_number, commit_hash)
 end
 
