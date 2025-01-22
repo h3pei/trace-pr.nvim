@@ -15,7 +15,7 @@ local function build_git_blame_command(path, line_num)
       line_num .. "," .. line_num,
       "--",
       path,
-    }
+    },
   }
 end
 

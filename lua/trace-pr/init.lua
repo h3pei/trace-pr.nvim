@@ -9,7 +9,7 @@ function M.trace_pr()
   local pr_number = require("trace-pr.pr_number").get(commit_hash)
 
   -- browse_pr(pr_number, commit_hash)
-  require('trace-pr.browser').browse(pr_number, commit_hash)
+  require("trace-pr.browser").browse(pr_number, commit_hash)
 end
 
 function M.setup(user_config)
