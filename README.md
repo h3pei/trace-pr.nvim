@@ -10,7 +10,7 @@
 ## Requirements
 
 - `git` must be installed and available in your `PATH`
-- `gh` must be installed and available in your `PATH`
+- [`gh`](https://github.com/cli/cli#installation) must be installed and available in your `PATH`
 - A GitHub repository with remote access set up
 
 ## Installation
