@@ -29,7 +29,7 @@ Then, you can use the following commands.
 
 |Command|Description|
 |:--|:--|
-|`:TracePR`|Traces the most recent PullRequest for the current line and opens it with the `gh browse` command|
+|`:TracePR`|Traces the most recent PullRequest for the current line and opens it with the [`gh browse`](https://cli.github.com/manual/gh_browse) command|
 
 ## Configuration
 
