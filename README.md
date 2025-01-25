@@ -4,8 +4,8 @@
 
 ## Features
 
-- **Locate the nearest Pull Request**: Quickly find the GitHub Pull Request linked to the current line.
-- **Fallback to commit view**: If no PR is found, open the commit hash on GitHub for detailed context.
+- **Locate the nearest Pull Request**: Quickly find the GitHub Pull Request linked to the current line, regardless of whether it was merged using the `Create a merge commit` method or the `Squash and merge` method.
+- **Fallback to commit view**: If no PR is found, open the commit hash on GitHub for detailed context. This behavior is configurable.
 
 ## Requirements
 
