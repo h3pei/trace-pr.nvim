@@ -12,7 +12,7 @@ local function browse_commit(commit_hash)
   vim.system({ "gh", "browse", commit_hash })
 end
 
----Open the PullRequest page or commit page by the "gh browse" command
+---Open the Pull Request page or commit page by the "gh browse" command
 ---
 ---@param pr_number string
 ---@param commit_hash string
@@ -27,7 +27,7 @@ function M.browse(pr_number, commit_hash)
     browse_commit(commit_hash)
     return
   else
-    vim.notify("[trace-pr.nvim] PullRequest not found.", vim.log.levels.WARN)
+    vim.notify("[trace-pr.nvim] Pull Request not found.", vim.log.levels.WARN)
     return
   end
 end
