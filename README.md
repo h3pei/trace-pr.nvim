@@ -15,22 +15,12 @@
 
 ## Installation
 
-Using [lazy.nvim](https://github.com/folke/lazy.nvim):
+Install the plugin with your package manager:
+
+[lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
-{ 'mogulla3/trace-pr.nvim' }
-```
-
-## Configuration
-
-`trace-pr.nvim` works out of the box with default settings, but you can customize it to suit your needs. Here is an example configuration:
-
-```lua
-require('trace-pr').setup {
-  -- Whether to trace on commit if PullRequest is not found, e.g. if it is committed directly.
-  -- If false, the tracking is terminated with an error message.
-  trace_by_commit_hash_when_pr_not_found = true,
-}
+{ "mogulla3/trace-pr.nvim", config = true }
 ```
 
 ## Usage
@@ -40,6 +30,18 @@ Then, you can use the following commands.
 |Command|Description|
 |:--|:--|
 |`:TracePR`|Traces the most recent PullRequest for the current line and opens it with the `gh browse` command|
+
+## Configuration
+
+`trace-pr.nvim` works out of the box with default settings, but you can customize it to suit your needs. Here is an example configuration:
+
+```lua
+require('trace-pr').setup({
+  -- Whether to trace on commit if PullRequest is not found, e.g. if it is committed directly.
+  -- If false, the tracking is terminated with an warning message.
+  trace_by_commit_hash_when_pr_not_found = true,
+})
+```
 
 ## How It Works
 
