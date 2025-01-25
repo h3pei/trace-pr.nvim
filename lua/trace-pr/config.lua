@@ -1,7 +1,7 @@
 local config = {}
 
 local default_config = {
-  -- Whether to trace on commit if PullRequest is not found, e.g. if it is committed directly.
+  -- Whether to trace on commit if Pull Request is not found, e.g. if it is committed directly.
   trace_by_commit_hash_when_pr_not_found = true,
 }
 

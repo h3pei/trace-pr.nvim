@@ -31,7 +31,7 @@ Then, you can use the following commands.
 
 |Command|Description|
 |:--|:--|
-|`:TracePR`|Traces the most recent PullRequest for the current line and opens it with the [`gh browse`](https://cli.github.com/manual/gh_browse) command|
+|`:TracePR`|Traces the most recent Pull Request for the current line and opens it with the [`gh browse`](https://cli.github.com/manual/gh_browse) command|
 
 ## Configuration
 
@@ -39,7 +39,7 @@ Then, you can use the following commands.
 
 ```lua
 require('trace-pr').setup({
-  -- Whether to trace on commit if PullRequest is not found, e.g. if it is committed directly.
+  -- Whether to trace on commit if Pull Request is not found, e.g. if it is committed directly.
   -- If false, the tracking is terminated with an warning message.
   trace_by_commit_hash_when_pr_not_found = true,
 })
