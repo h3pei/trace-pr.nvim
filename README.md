@@ -1,5 +1,7 @@
 # trace-pr.nvim
 
+https://github.com/user-attachments/assets/74fadf13-fcbd-40de-b549-6c2a630f732e
+
 **trace-pr.nvim** is a Neovim plugin designed to make it easier for developers to trace the Git history of the current line in their code. With this plugin, you can instantly open the nearest Pull Request (PR) on GitHub associated with the line you're working on. If no Pull Request is found, the plugin will open the commit hash instead, streamlining your workflow and saving you precious time.
 
 ## Features
