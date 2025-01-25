@@ -4,33 +4,23 @@
 
 ## Features
 
-- **Locate the nearest Pull Request**: Quickly find the GitHub Pull Request linked to the current line.
-- **Fallback to commit view**: If no PR is found, open the commit hash on GitHub for detailed context.
+- **Locate the nearest Pull Request**: Quickly find the GitHub Pull Request linked to the current line, regardless of whether it was merged using the `Create a merge commit` method or the `Squash and merge` method.
+- **Fallback to commit view**: If no PR is found, open the commit hash on GitHub for detailed context. This behavior is configurable.
 
 ## Requirements
 
 - `git` must be installed and available in your `PATH`
-- `gh` must be installed and available in your `PATH`
+- [`gh`](https://github.com/cli/cli#installation) must be installed and available in your `PATH`
 - A GitHub repository with remote access set up
 
 ## Installation
 
-Using [lazy.nvim](https://github.com/folke/lazy.nvim):
+Install the plugin with your package manager:
+
+[lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
-{ 'mogulla3/trace-pr.nvim' }
-```
-
-## Configuration
-
-`trace-pr.nvim` works out of the box with default settings, but you can customize it to suit your needs. Here is an example configuration:
-
-```lua
-require('trace-pr').setup {
-  -- Whether to trace on commit if PullRequest is not found, e.g. if it is committed directly.
-  -- If false, the tracking is terminated with an error message.
-  trace_by_commit_hash_when_pr_not_found = true,
-}
+{ "mogulla3/trace-pr.nvim", config = true }
 ```
 
 ## Usage
@@ -39,7 +29,19 @@ Then, you can use the following commands.
 
 |Command|Description|
 |:--|:--|
-|`:TracePR`|Traces the most recent PullRequest for the current line and opens it with the `gh browse` command|
+|`:TracePR`|Traces the most recent PullRequest for the current line and opens it with the [`gh browse`](https://cli.github.com/manual/gh_browse) command|
+
+## Configuration
+
+`trace-pr.nvim` works out of the box with default settings, but you can customize it to suit your needs. Here is an example configuration:
+
+```lua
+require('trace-pr').setup({
+  -- Whether to trace on commit if PullRequest is not found, e.g. if it is committed directly.
+  -- If false, the tracking is terminated with an warning message.
+  trace_by_commit_hash_when_pr_not_found = true,
+})
+```
 
 ## How It Works
 
