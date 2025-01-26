@@ -1,5 +1,4 @@
 local M = {}
-local notifier = require("trace-pr.notifier")
 
 ---Build the gh pr command
 ---@param commit_hash string
