@@ -7,6 +7,11 @@ local function define_commands()
 end
 
 function M.trace_pr()
+  local is_valid = require('trace-pr.checker').check_requirements()
+  if not is_valid then
+    return
+  end
+
   local current_buf_path = vim.api.nvim_buf_get_name(0)
   local current_line_num = vim.api.nvim_win_get_cursor(0)[1]
   local commit_hash = require("trace-pr.commit_hash").get(current_buf_path, current_line_num)
