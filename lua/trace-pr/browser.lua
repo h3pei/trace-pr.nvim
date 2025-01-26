@@ -13,7 +13,6 @@ local function browse_commit(commit_hash)
 end
 
 ---Open the Pull Request page or commit page by the "gh browse" command
----
 ---@param pr_number string
 ---@param commit_hash string
 ---@return nil

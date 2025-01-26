@@ -1,7 +1,6 @@
 local M = {}
 
 ---Build the git blame command
----
 ---@param path string
 ---@param line_num number
 ---@return table
@@ -20,7 +19,6 @@ local function build_git_blame_command(path, line_num)
 end
 
 ---Get the commit hash of the line
----
 ---@param path string
 ---@param line_num number
 ---@return string

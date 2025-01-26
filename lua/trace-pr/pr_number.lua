@@ -1,7 +1,6 @@
 local M = {}
 
 ---Build the gh pr command
----
 ---@param commit_hash string
 ---@return table
 local function build_gh_pr_command(commit_hash)
@@ -29,7 +28,6 @@ local function build_gh_pr_command(commit_hash)
 end
 
 ---Get the PR number of the commit hash
----
 ---@param commit_hash string
 ---@return string
 function M.get(commit_hash)
