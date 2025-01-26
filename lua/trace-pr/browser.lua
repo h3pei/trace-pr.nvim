@@ -26,10 +26,9 @@ function M.browse(pr_number, commit_hash)
   if config.trace_by_commit_hash_when_pr_not_found then
     browse_commit(commit_hash)
     return
-  else
-    vim.notify("[trace-pr.nvim] Pull Request not found.", vim.log.levels.WARN)
-    return
   end
+
+  vim.notify("[trace-pr.nvim] Pull Request not found.", vim.log.levels.WARN)
 end
 
 return M
