@@ -19,11 +19,17 @@ function M.trace_pr()
   end
 
   local pr_number = require("trace-pr.pr_number").get(commit_hash)
-  if pr_number == nil then
+
+  if pr_number then
+    require("trace-pr.browser").browse_pr(pr_number)
     return
   end
 
-  require("trace-pr.browser").browse(pr_number, commit_hash)
+  if config.trace_by_commit_hash_when_pr_not_found then
+    require("trace-pr.browser").browse_commit(commit_hash)
+  else
+    require("trace-pr.notifier").warn("Pull Request not found.")
+  end
 end
 
 function M.setup(user_config)
