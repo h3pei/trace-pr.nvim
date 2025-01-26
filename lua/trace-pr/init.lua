@@ -1,6 +1,5 @@
-local config = require("trace-pr.config")
-
 local M = {}
+local config = require("trace-pr.config")
 
 local function define_commands()
   vim.cmd("command! TracePR lua require('trace-pr').trace_pr()<CR>")

@@ -1,4 +1,5 @@
 local M = {}
+local notifier = require("trace-pr.notifier")
 
 ---Build the gh pr command
 ---@param commit_hash string
@@ -35,7 +36,6 @@ function M.get(commit_hash)
   local gh_pr_result = vim.system(gh_pr_command.cmd, { env = gh_pr_command.env }):wait()
 
   if gh_pr_result.stdout == "" then
-    vim.notify("[trace-pr.nvim] Pull Request not found.", vim.log.levels.WARN)
     return nil
   end
 

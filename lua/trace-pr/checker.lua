@@ -1,4 +1,5 @@
 local M = {}
+local notifier = require("trace-pr.notifier")
 
 --- check if git is installed
 ---@return boolean
@@ -30,22 +31,22 @@ end
 ---@return boolean
 function M.check_requirements()
   if not is_git_installed() then
-    vim.notify("[trace-pr.nvim] git is not installed.", vim.log.levels.ERROR)
+    notifier.error("git is not installed.")
     return false
   end
 
   if not is_gh_installed() then
-    vim.notify("[trace-pr.nvim] gh is not installed.", vim.log.levels.ERROR)
+    notifier.error("gh is not installed.")
     return false
   end
 
   if not is_inside_git_work_tree() then
-    vim.notify("[trace-pr.nvim] Not inside a git work tree.", vim.log.levels.ERROR)
+    notifier.error("Not inside a git work tree.")
     return false
   end
 
   if not is_remote_origin_github() then
-    vim.notify("[trace-pr.nvim] Remote origin is not GitHub.", vim.log.levels.ERROR)
+    notifier.error("Remote origin is not GitHub.")
     return false
   end
 

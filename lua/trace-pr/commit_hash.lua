@@ -1,4 +1,5 @@
 local M = {}
+local notifier = require("trace-pr.notifier")
 
 ---Build the git blame command
 ---@param path string
@@ -24,10 +25,10 @@ end
 ---@return string|nil # The commit hash of the line. If failed, return nil.
 function M.get(path, line_num)
   local git_blame_command = build_git_blame_command(path, line_num)
-  local git_blame_result = vim.system(git_blame_command.cmd):wait()
+  local git_blame_result = vim.system(git_blame_command.cmd, { text = true }):wait()
 
   if git_blame_result.code ~= 0 then
-    vim.notify("[trace-pr.nvim] [" .. git_blame_result.code .. "] " .. git_blame_result.stderr, vim.log.levels.ERROR)
+    notifier.error("[" .. git_blame_result.code .. "] " .. git_blame_result.stderr)
     return nil
   end
 
