@@ -29,10 +29,15 @@ end
 
 ---Get the PR number of the commit hash
 ---@param commit_hash string
----@return string
+---@return string|nil # The PR number of the commit hash. If PR not found, return nil.
 function M.get(commit_hash)
   local gh_pr_command = build_gh_pr_command(commit_hash)
   local gh_pr_result = vim.system(gh_pr_command.cmd, { env = gh_pr_command.env }):wait()
+
+  if gh_pr_result.stdout == "" then
+    vim.notify("[trace-pr.nvim] Pull Request not found.", vim.log.levels.WARN)
+    return nil
+  end
 
   -- Remove the trailing newline code by gsub to get the pr number
   return gh_pr_result.stdout:gsub("[\r\n]", "")

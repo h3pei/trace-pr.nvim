@@ -20,6 +20,9 @@ function M.trace_pr()
   end
 
   local pr_number = require("trace-pr.pr_number").get(commit_hash)
+  if pr_number == nil then
+    return
+  end
 
   require("trace-pr.browser").browse(pr_number, commit_hash)
 end
