@@ -15,6 +15,10 @@ function M.trace_pr()
   local current_buf_path = vim.api.nvim_buf_get_name(0)
   local current_line_num = vim.api.nvim_win_get_cursor(0)[1]
   local commit_hash = require("trace-pr.commit_hash").get(current_buf_path, current_line_num)
+  if commit_hash == nil then
+    return
+  end
+
   local pr_number = require("trace-pr.pr_number").get(commit_hash)
 
   require("trace-pr.browser").browse(pr_number, commit_hash)

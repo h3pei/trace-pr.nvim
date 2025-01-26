@@ -21,12 +21,15 @@ end
 ---Get the commit hash of the line
 ---@param path string
 ---@param line_num number
----@return string
+---@return string|nil # The commit hash of the line. If failed, return nil.
 function M.get(path, line_num)
   local git_blame_command = build_git_blame_command(path, line_num)
   local git_blame_result = vim.system(git_blame_command.cmd):wait()
 
-  -- TODO: Handle error
+  if git_blame_result.code ~= 0 then
+    vim.notify("[trace-pr.nvim] [" .. git_blame_result.code .. "] " .. git_blame_result.stderr, vim.log.levels.ERROR)
+    return nil
+  end
 
   -- Remove the leading caret (^) and return the commit hash
   -- Commit called "boundary commit" is prefixed with a caret mark(^).
