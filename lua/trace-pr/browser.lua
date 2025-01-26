@@ -1,6 +1,6 @@
 local M = {}
 
----@param pr_number string
+---@param pr_number number
 ---@return nil
 function M.browse_pr(pr_number)
   vim.system({ "gh", "browse", pr_number })
