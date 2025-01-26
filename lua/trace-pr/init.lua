@@ -2,10 +2,10 @@ local config = require("trace-pr.config")
 
 local M = {}
 
---- TODO: check if git is installed
---- TODO: check if gh is installed
---- TODO: check if the current directory is a git repository
---- TODO: check if the repository is on GitHub.
+local function define_commands()
+  vim.cmd("command! TracePR lua require('trace-pr').trace_pr()<CR>")
+end
+
 function M.trace_pr()
   local current_buf_path = vim.api.nvim_buf_get_name(0)
   local current_line_num = vim.api.nvim_win_get_cursor(0)[1]
@@ -19,7 +19,7 @@ function M.setup(user_config)
   user_config = user_config or {}
   config.setup(user_config)
 
-  vim.cmd("command! TracePR lua require('trace-pr').trace_pr()<CR>")
+  define_commands()
 end
 
 return M
