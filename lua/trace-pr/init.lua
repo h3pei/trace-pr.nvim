@@ -7,7 +7,7 @@ local function define_commands()
 end
 
 function M.trace_pr()
-  local is_valid = require('trace-pr.checker').check_requirements()
+  local is_valid = require("trace-pr.checker").check_requirements()
   if not is_valid then
     return
   end

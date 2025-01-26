@@ -22,7 +22,7 @@ end
 --- check if the remote origin is github
 ---@return boolean
 local function is_remote_origin_github()
-  local result = vim.system({ "git", "remote", "get-url", "origin"}):wait()
+  local result = vim.system({ "git", "remote", "get-url", "origin" }):wait()
   return result.stdout:find("github.com") ~= nil
 end
 
