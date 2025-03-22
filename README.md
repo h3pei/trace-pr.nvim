@@ -22,7 +22,7 @@ Install the plugin with your package manager:
 [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
-{ "mogulla3/trace-pr.nvim", config = true }
+{ "h3pei/trace-pr.nvim", config = true }
 ```
 
 ## Usage
