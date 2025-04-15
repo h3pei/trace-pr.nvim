@@ -20,13 +20,6 @@ local function is_inside_git_work_tree()
   return result.stdout:gsub("[\r\n]", "") == "true"
 end
 
---- check if the remote origin is github
----@return boolean
-local function is_remote_origin_github()
-  local result = vim.system({ "git", "remote", "get-url", "origin" }):wait()
-  return result.stdout:find("github.com") ~= nil
-end
-
 --- check if all requirements are satisfied
 ---@return boolean
 function M.check_requirements()
@@ -42,11 +35,6 @@ function M.check_requirements()
 
   if not is_inside_git_work_tree() then
     notifier.error("Not inside a git work tree.")
-    return false
-  end
-
-  if not is_remote_origin_github() then
-    notifier.error("Remote origin is not GitHub.")
     return false
   end
 
