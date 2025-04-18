@@ -41,6 +41,7 @@ Then, you can use the following commands.
 require('trace-pr').setup({
   -- Whether to trace on commit if Pull Request is not found, e.g. if it is committed directly.
   -- If false, the tracking is terminated with an warning message.
+  -- Default: true
   trace_by_commit_hash_when_pr_not_found = true,
 })
 ```
