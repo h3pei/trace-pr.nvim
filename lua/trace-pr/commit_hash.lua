@@ -10,6 +10,7 @@ local function build_git_blame_command(path, line_num)
       "git",
       "blame",
       "-s", -- Suppress the author name and timestamp from the output
+      "-l", -- Show long rev
       "-L",
       line_num .. "," .. line_num,
       "--",
