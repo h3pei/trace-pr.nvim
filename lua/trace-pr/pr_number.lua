@@ -14,9 +14,13 @@ local function build_gh_pr_command(commit_hash)
       "-S",
       commit_hash,
       "--json",
-      "number,mergeCommit",
+      "number,mergeCommit,commits",
       "--jq",
-      ".[] | select(.mergeCommit.oid == \"" .. commit_hash .. "\") | .number",
+      ".[] | select(.mergeCommit.oid == \""
+        .. commit_hash
+        .. "\" or any(.commits[]; .oid == \""
+        .. commit_hash
+        .. "\")) | .number",
     },
     env = {
       NO_COLOR = "1",
@@ -32,8 +36,8 @@ function M.get(commit_hash)
   local gh_pr_command = build_gh_pr_command(commit_hash)
   local gh_pr_result = vim.system(gh_pr_command.cmd, { env = gh_pr_command.env, text = true }):wait()
 
-  -- Remove the trailing newline code
-  local pr_number = gh_pr_result.stdout:gsub("[\n]", "")
+  -- Take the first line only (multiple PRs may match in rare cases) and strip newline
+  local pr_number = gh_pr_result.stdout:match("[^\n]+") or ""
 
   return tonumber(pr_number)
 end
