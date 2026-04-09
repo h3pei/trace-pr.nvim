@@ -37,6 +37,17 @@ The plugin consists of several modules under `lua/trace-pr/`:
 - gh CLI must be installed and in PATH
 - Must be run inside a git repository with GitHub remote
 
+## E2E Testing
+
+PR 検出ロジックを変更した際は [trace-pr-nvim-playground](https://github.com/h3pei/trace-pr-nvim-playground) で手動 E2E 確認を行う。各ファイルで `:TracePR` を実行し、期待するページが開くことを確認する。
+
+| ファイル | マージ方式 | 期待する遷移先 |
+|---|---|---|
+| `squash.txt` | squash merge | PR #1 |
+| `rebase.txt` | rebase merge | PR #2 |
+| `merge-commit.txt` | merge commit | PR #3 |
+| `direct-push.txt` | PR なし | コミット詳細 |
+
 ## Configuration
 
 Single configuration option:
