@@ -42,4 +42,7 @@ function M.get(commit_hash)
   return tonumber(pr_number)
 end
 
+-- Exposed for testing
+M._build_gh_pr_command = build_gh_pr_command
+
 return M
