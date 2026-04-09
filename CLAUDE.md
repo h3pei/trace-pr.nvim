@@ -29,7 +29,7 @@ The plugin consists of several modules under `lua/trace-pr/`:
 ## Development Commands
 
 - **Linting**: `stylua .` (configured in stylua.toml with 2-space indentation)
-- **Testing**: No test framework detected in codebase
+- **Testing**: `make test` (requires plenary.nvim and `jq` in PATH)
 
 ## Dependencies
 
